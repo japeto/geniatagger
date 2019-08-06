@@ -1,22 +1,21 @@
 
-
-                     GENIA Tagger
-
-                   Tsujii laboratory
-                  University of Tokyo
+#GENIA Tagger
+Tsujii laboratory
+University of Tokyo
 
 
-1. How to build 
-
-  You need gcc to build the tagger.
-
-  % make
-
-  if you encounter errors with hash, try commenting out "#define USE_HASH_MAP"
-  in "maxent.h".
+Analyzes English sentences and outputs the base forms, part-of-speech tags, chunk tags, and named entity tags. The tagger is specifically tuned for biomedical text such as MEDLINE abstracts. If you need to extract information from biomedical documents, this tagger might be a useful preprocessing tool.
 
 
-2. How to use
+## How to build 
+You need gcc to build the tagger.
+
+% make
+
+if you encounter errors with hash, try commenting out "#define USE_HASH_MAP" in "maxent.h".
+
+
+## How to use
 
   Prepare a text file containing one sentence per line, then
 
@@ -35,7 +34,7 @@
   cell_line, cell_type, and PROTEIN).
 
 
- 2.1 Tokenization
+## Tokenization
 
   This tagger tokenizes the sentence with almost the same policy as the
   upenn tokenizer (http://www.cis.upenn.edu/~treebank/tokenizer.sed). 
@@ -45,7 +44,7 @@
   own tokenizer with white spaces. 
 
 
-References
+## References
 
 [1] Yoshimasa Tsuruoka and Jun'ichi Tsujii, Bidirectional Inference with
     the Easiest-First Strategy for Tagging Sequence Data, Proceedings of

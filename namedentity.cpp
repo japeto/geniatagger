@@ -41,7 +41,7 @@ struct WordInfo
   double edge_prob() const {
     return ( edge_ne + 1.0 ) / ( total + 2.0 );
   }
-  bool operator<(const WordInfo & x) {
+  bool operator < (const WordInfo & x) {
     //    return this->out_prob() > x.out_prob();
     return this->edge_prob() > x.edge_prob();
   }
@@ -296,17 +296,18 @@ void load_word_info(const string & filename)
   }
 }
 
-
-
 struct Annotation 
 {
   int label;
   int begin;
   int end;
   double prob;
-  bool operator<(const Annotation & x) { return prob > x.prob; }
   Annotation(const int l, const int b, const int e, const double p) :
-    label(l), begin(b), end(e), prob(p) {}
+    label(l), begin(b), end(e), prob(p) {};
+  bool operator < (const Annotation & x) const {
+	  return prob > x.prob;
+  }  
+
 };
 
 
