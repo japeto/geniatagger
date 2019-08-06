@@ -18,35 +18,39 @@ if you encounter errors with hash, try commenting out "#define USE_HASH_MAP" in 
 
 ## How to use
 
-  Prepare a text file containing one sentence per line, then
+Prepare a text file containing one sentence per line, then
 
-  % ./geniatagger < TEXTFILE > TAGGEDTEXT
+% ./geniatagger < TEXTFILE > TAGGEDTEXT
 
-  The tagger outputs the base forms, part-of-speech (POS) tags, chunk tags,
-  and named entity (NE) tags in the following tab-separated format.
+The tagger outputs the base forms, part-of-speech (POS) tags, chunk tags,
+and named entity (NE) tags in the following tab-separated format.
 
-  word1	base1	POStag1	chunktag1 NEtag1
-  word2	base2	POStag2	chunktag2 NEtag2
-    :     :        :       :
+word1	base1	POStag1	chunktag1 NEtag1
+word2	base2	POStag2	chunktag2 NEtag2
+  :     :        :       :
 
-  Chunks and named entities are represented in the IOB2 format (B for BEGIN,
-  I for INSIDE, and O for OUTSIDE). The named entity tagger is trained on
-  the NLPBA data set [3], which contains five semantic classes (DNA, RNA,
-  cell_line, cell_type, and PROTEIN).
+Chunks and named entities are represented in the IOB2 format (B for BEGIN,
+I for INSIDE, and O for OUTSIDE). The named entity tagger is trained on
+the NLPBA data set [3], which contains five semantic classes (DNA, RNA,
+cell_line, cell_type, and PROTEIN).
 
 
 ## Tokenization
 
-  This tagger tokenizes the sentence with almost the same policy as the
-  upenn tokenizer (http://www.cis.upenn.edu/~treebank/tokenizer.sed). 
+This tagger tokenizes the sentence with almost the same policy as the
+upenn tokenizer (http://www.cis.upenn.edu/~treebank/tokenizer.sed). 
 
-  If you don't want the tagger to perform tokenization, use -nt option.
-  In that case, the input sentences should be already tokenized by your
-  own tokenizer with white spaces. 
+If you don't want the tagger to perform tokenization, use -nt option.
+In that case, the input sentences should be already tokenized by your
+own tokenizer with white spaces. 
 
 
 ## Sample
-Recombinant MIP-1-alpha induces a dose-dependent inhibition of different strains of HIV-1, HIV-2, and simian immunodeficiency virus (SIV).
+sentence = "Recombinant MIP-1-alpha induces a dose-dependent inhibition of different strains of HIV-1, HIV-2, and simian immunodeficiency virus (SIV)."
+
+./geniatagger
+
+> paste sentence in terminal.
 
 
     Recombinant         Recombinant         JJ        B-NP      B-protein 
